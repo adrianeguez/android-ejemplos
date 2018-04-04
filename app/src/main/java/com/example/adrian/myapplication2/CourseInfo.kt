@@ -1,8 +1,22 @@
 package com.example.adrian.myapplication2
 
+import android.os.Parcel
+import android.os.Parcelable
+
 class CourseInfo(var courseId: String,
                  var title: String,
-                 var modules: List<ModuleInfo>) {
+                 var modules: List<ModuleInfo>) : Parcelable {
+
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            ArrayList()) {
+        parcel.readTypedList(ArrayList<ModuleInfo>(), ModuleInfo.CREATOR)
+    }
+
+    fun parcelRico(): ArrayList<ModuleInfo> {
+        return ArrayList<ModuleInfo>()
+    }
 
     fun getModulesCompletionStatus(): BooleanArray {
         val status = BooleanArray(modules.size)
@@ -39,6 +53,28 @@ class CourseInfo(var courseId: String,
 
     override fun hashCode(): Int {
         return courseId.hashCode()
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(courseId)
+        parcel.writeString(title)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object {
+        @JvmField
+        val CREATOR = object : Parcelable.Creator<CourseInfo> {
+            override fun createFromParcel(parcel: Parcel): CourseInfo {
+                return CourseInfo(parcel)
+            }
+
+            override fun newArray(size: Int): Array<CourseInfo?> {
+                return arrayOfNulls(size)
+            }
+        }
     }
 
 }

@@ -1,12 +1,10 @@
 package com.example.adrian.myapplication2
 
 import java.util.ArrayList
-
-class DataManager {
-
+class DataManager{
     companion object Factory {
-        lateinit var courses: ArrayList<CourseInfo>
-        lateinit var notes: ArrayList<NoteInfo>
+        var courses: ArrayList<CourseInfo> = ArrayList()
+        var notes: ArrayList<NoteInfo> = ArrayList()
 
         init {
             initializeCourses()
@@ -113,7 +111,7 @@ class DataManager {
             return count
         }
 
-        private fun initializeCourse1(): CourseInfo {
+        fun initializeCourse1(): CourseInfo {
             val modules = ArrayList<ModuleInfo>()
             modules.add(ModuleInfo("android_intents_m01", "Android Late Binding and Intents"))
             modules.add(ModuleInfo("android_intents_m02", "Component activation with intents"))
@@ -169,4 +167,6 @@ class DataManager {
             return CourseInfo("java_core", "Java Fundamentals: The Core Platform", modules)
         }
     }
+
 }
+

@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        val courses = DataManager.Factory.courses
 
-        val courses = DataManager.courses
 
-        val adaterCourses: ArrayAdapter<CourseInfo> = ArrayAdapter<CourseInfo>(this,android.R.layout.simple_spinner_item, courses)
+        val adaterCourses = ArrayAdapter<CourseInfo>(this,android.R.layout.simple_spinner_item, courses)
         adaterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCourses.adapter = adaterCourses
 
@@ -45,3 +45,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+
+// emulator -avd Nexus_5_API_24
