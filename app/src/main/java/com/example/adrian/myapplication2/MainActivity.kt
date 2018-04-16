@@ -193,6 +193,11 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Log.i("create", "Va a destruirse la vista, adios a todos")
     }
+
+    override fun finish() {
+        super.finish()
+        Log.i("create", "Finalizando, El usuario dijo que se quiere ir de esta Actividad")
+    }
 }
 
 
