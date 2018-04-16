@@ -9,6 +9,7 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
+        android:id="@+id/texto_central"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -17,11 +18,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinnerCourses"
-        android:layout_width="match_parent"
-        android:layout_height="17dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="34dp" />
+    <Button
+        android:id="@+id/boton_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <Button
+        android:id="@+id/boton_main_dos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Button"
+        app:layout_constraintTop_toBottomOf="@+id/boton_main"
+        tools:layout_editor_absoluteX="148dp" />
 
 </android.support.constraint.ConstraintLayout>
