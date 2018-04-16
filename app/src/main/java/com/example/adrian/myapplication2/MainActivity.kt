@@ -2,7 +2,7 @@ package com.example.adrian.myapplication2
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
+import android.Manifest
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.support.design.widget.Snackbar
@@ -17,7 +17,10 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import android.R.attr.data
+import android.content.pm.PackageManager
 import android.database.Cursor
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 
 
 var estadoDelJuego: String? = null
@@ -38,7 +41,15 @@ class MainActivity : AppCompatActivity() {
 
         // Inicializa valores
         inicializarValores()
-
+        val permission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA
+        )
+        Log.i("create", "permiso ${permission}")
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Log.i("create", "Entrando a pedir permiso")
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_PERMISSION)
+        } else {
+            Log.i("create", "Ya tiene")
+        }
         /*
         val courses = DataManager.Factory.courses
 
@@ -59,6 +70,26 @@ class MainActivity : AppCompatActivity() {
             seleccionarContacto()
         }
 
+    }
+
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+
+        Log.i("create", "Entro a despues de responder")
+
+        when (requestCode) {
+            REQUEST_PERMISSION -> {
+                Log.i("create", "Es incierto")
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.i("create", "Dio permisos :D")
+                } else {
+                    Log.i("create", "No dio permisos D:")
+                }
+            }
+            else -> { // Note the block
+                Log.i("create", "Al parecer no acepto los permisos D:")
+            }
+        }
     }
 
     fun irAActividadDos() {
@@ -123,6 +154,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         internal val PICK_CONTACT_REQUEST = 0
+        const val REQUEST_PERMISSION = 1
     }
 
     override fun onStart() {

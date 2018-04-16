@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Aplicacion de notas</string>
+    <string name="action_settings">Configuracion</string>
+    <string name="action_settings2">Configuracion 2</string>
+    <string name="action_settings3">Configuracion 3</string>
+    <string name="title_activity_note">Editar nota</string>
+</resources>

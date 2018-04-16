@@ -10,8 +10,10 @@
 
     <TextView
         android:id="@+id/texto_central"
+        style="@style/CustomText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="49dp"
+        android:fontFamily="@font/gugi_regular"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -22,7 +24,9 @@
         android:id="@+id/boton_main"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/colorBlack"
         android:text="Button"
+        android:textColor="@color/colorAccent"
         tools:layout_editor_absoluteX="142dp"
         tools:layout_editor_absoluteY="55dp" />
 
@@ -31,7 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:background="@color/colorRed"
         android:text="Button"
+        android:textColor="@color/button_text"
         app:layout_constraintTop_toBottomOf="@+id/boton_main"
         tools:layout_editor_absoluteX="148dp" />
 
