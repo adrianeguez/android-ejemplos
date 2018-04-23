@@ -70,6 +70,11 @@ class MainActivity : AppCompatActivity() {
             seleccionarContacto()
         }
 
+        boton_tres.setOnClickListener { view: View? ->
+            escucharEventoClickBotonTres()
+        }
+
+
     }
 
 
@@ -110,6 +115,12 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
 //        val intentDeActividadDos = Intent(this, ActividadDos::class.java)
 //        startActivity(intentDeActividadDos)
+    }
+
+    fun escucharEventoClickBotonTres() {
+        val intent = Intent(this, ActividadDos::class.java)
+        intent.putExtra("nombreBoton", "Adelante")
+        startActivity(intent)
     }
 
     fun seleccionarContacto() {
