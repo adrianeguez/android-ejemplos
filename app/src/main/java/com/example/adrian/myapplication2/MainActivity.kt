@@ -200,6 +200,7 @@ class MainActivity : AppCompatActivity() {
             Log.i("create", "Se esta guardando el estado de la instancia de esta actividad")
             numeroDeVeces++
             putString("GAME_STATE_KEY", "$estadoDelJuego $numeroDeVeces")
+            put
         }
         // call superclass to save any view hierarchy
         super.onSaveInstanceState(outState)
